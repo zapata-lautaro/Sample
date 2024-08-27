@@ -21,5 +21,15 @@
         public Language Language { get; private set; }
         public Bio Bio { get; private set; }
         public Version Version { get; private set; }
+
+        public static Person Create(
+            PersonId id,
+            Name name,
+            Language language,
+            Bio bio,
+            Version version)
+        {
+            return new Person(id, name, language, bio, version);
+        }
     }
 }

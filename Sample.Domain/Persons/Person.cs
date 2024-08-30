@@ -1,35 +1,38 @@
-﻿namespace Sample.Domain.Persons
+﻿namespace Sample.Domain.Persons;
+
+public sealed class Person
 {
-    public sealed class Person
+    private Person(
+        PersonId id,
+        Name name,
+        Language language,
+        Bio bio,
+        PersonVersion version)
     {
-        private Person(
-            PersonId id,
-            Name name,
-            Language language,
-            Bio bio,
-            Version version)
-        {
-            Id = id;
-            Name = name;
-            Language = language;
-            Bio = bio;
-            Version = version;
-        }
+        Id = id;
+        Name = name;
+        Language = language;
+        Bio = bio;
+        Version = version;
+    }
 
-        public PersonId Id { get; private set; }
-        public Name Name { get; private set; }
-        public Language Language { get; private set; }
-        public Bio Bio { get; private set; }
-        public Version Version { get; private set; }
+    private Person()
+    {
+    }
 
-        public static Person Create(
-            PersonId id,
-            Name name,
-            Language language,
-            Bio bio,
-            Version version)
-        {
-            return new Person(id, name, language, bio, version);
-        }
+    public PersonId Id { get; private set; }
+    public Name Name { get; private set; }
+    public Language Language { get; private set; }
+    public Bio Bio { get; private set; }
+    public PersonVersion Version { get; private set; }
+
+    public static Person Create(
+        PersonId id,
+        Name name,
+        Language language,
+        Bio bio,
+        PersonVersion version)
+    {
+        return new Person(id, name, language, bio, version);
     }
 }

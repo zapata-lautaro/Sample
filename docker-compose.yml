@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  sample.console:
+    image: ${DOCKER_REGISTRY-}sampleconsole
+    container_name: Sample.Console
+    build:
+      context: .
+      dockerfile: Sample.Console/Dockerfile
+
+  sample-db:
+    image: postgres:latest
+    container_name: Sample.DB
+    environment:
+        - POSTGRES_DB=sample
+        - POSTGRES_USERNAME=postgres
+        - POSTGRES_PASSWORD=postgres 
+    volumes:
+        - ./.containers/databse:/var/lib/postgresql/data
+    ports:
+        - 5432:5432
+    restart: always
+  

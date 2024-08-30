@@ -1,4 +1,3 @@
-﻿namespace Sample.Domain.Persons
-{
-    public record Language(string Value);
-}
+﻿namespace Sample.Domain.Persons;
+
+public record Language(string Value);
